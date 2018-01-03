@@ -1,25 +1,27 @@
 <head>
   <title>FirstMeteorApp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-  {{> info}}
+  <div class="container">
+  <h1>Projects</h1>
+  <hr>
+  <ul class="collection">
+  {{#each projects}}
+    {{> project}}
+  {{/each}}
+  </ul>
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
-
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
+<template name="project">
+  <li class="collection-item">
+    <h3>{{title}}</h3>
+    <ul><li>{{technologies}}</li></ul>
+    <p>{{description}}</p>
+    <ul><li>{{team}}</li></ul>
+    <a href={link}>Link to Project</a>
+  </li>
 </template>
