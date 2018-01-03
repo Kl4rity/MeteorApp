@@ -3,20 +3,28 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
-
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
+Template.body.helpers({
+  projects: [
+    {
+      title: "Block-Info",
+      description: "Client-side-only application that pulls blockchain data and calculates a couple of KPIs that we felt were missing.",
+      technologies: ["JavaScript", "Bootstrap", "APIs", "AJAX"],
+      team: ["Raphael Paier", "Clemens Stift"],
+      link: "www.stift.online"
+    },
+    {
+      title: "Investment-Ready",
+      description: "Revamp of complete Investment-Ready Website including UX and copywriting as well as Wordpress configuration and CSS adjustments.",
+      technologies: ["CSS", "Wordpress", "Copywriting", "UX-Design"],
+      team: ["Clemens Stift"],
+      link: "www.investment-ready.org"
+    },
+    {
+      title: "NBB Austria",
+      description: "Design and implementation of NBB Austria Website from scratch - no templates used. Wordpress as Backend.",
+      technologies: ["CSS", "Wordpress", "Copywriting", "UX-Design", "UI-Design"],
+      team: ["Clemens Stift", "Marlon Alagoda"],
+      link: "www.unternehmensverkauf.at"
+    }
+  ]
 });
